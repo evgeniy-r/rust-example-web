@@ -1,0 +1,14 @@
+# Example of the configuration file with default values and description.
+
+# Host and port to listen.
+host = "127.0.0.1"
+port = 80
+
+# A document root. Files in this directory will be accessible via HTTP.
+root = "public"
+
+# Timeout for reading HTTP-request stream (in seconds).
+read_timeout = 5
+
+# A number of server workers (threads).
+worker_number = 4
