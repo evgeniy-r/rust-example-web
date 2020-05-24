@@ -38,7 +38,7 @@ impl Config {
         4
     }
 
-    pub fn from_file(filename: &str) -> Config {
+    pub fn from_file(filename: &str) -> Self {
         println!("Loading a configuration from {}...", filename);
         let file_contents = fs::read_to_string(filename).unwrap_or_else(|_| {
             println!("The configuration file not found, a default configuration was used.");

@@ -31,11 +31,11 @@ impl<'a> PartialEq for DirItem<'a> {
 }
 
 impl<'a> DirItem<'a> {
-    pub fn from_abs_path(path: &'a PathBuf, root: &PathBuf) -> Option<DirItem<'a>> {
+    pub fn from_abs_path(path: &'a PathBuf, root: &PathBuf) -> Option<Self> {
         let is_dir = path.is_dir();
         path.strip_prefix(root)
             .ok()
-            .map(|path| DirItem { path, is_dir })
+            .map(|path| Self { path, is_dir })
     }
 }
 

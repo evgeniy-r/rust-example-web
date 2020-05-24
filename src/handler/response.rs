@@ -10,12 +10,12 @@ pub struct Response {
 }
 
 impl Response {
-    pub fn new(status: u16, body: Body, send_body: bool, mime: &str) -> Response {
+    pub fn new(status: u16, body: Body, send_body: bool, mime: &str) -> Self {
         let mut headers = HashMap::new();
         headers.insert("Content-Length", body.len().to_string());
         headers.insert("Content-Type", mime.to_string());
 
-        Response {
+        Self {
             status,
             headers,
             send_body,

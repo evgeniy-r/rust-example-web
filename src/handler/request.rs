@@ -5,7 +5,7 @@ pub struct Request<'a> {
 }
 
 impl<'a> Request<'a> {
-    pub fn from(str: &str) -> Option<Request> {
+    pub fn from(str: &'a str) -> Option<Self> {
         let elements: Vec<&str> = str.split_whitespace().collect();
         if elements.len() != 3 {
             return None;
@@ -14,7 +14,7 @@ impl<'a> Request<'a> {
         let path = elements[1];
         let proto = elements[2];
 
-        Some(Request {
+        Some(Self {
             method,
             path,
             proto,

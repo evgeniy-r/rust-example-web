@@ -23,11 +23,11 @@ pub struct Handler<'a> {
 }
 
 impl<'a> Handler<'a> {
-    pub fn new(config: &Config, stream: TcpStream, worker_id: usize) -> Handler {
+    pub fn new(config: &'a Config, stream: TcpStream, worker_id: usize) -> Self {
         stream
             .set_read_timeout(Some(Duration::new(config.read_timeout, 0)))
             .unwrap();
-        Handler {
+        Self {
             config,
             stream,
             worker_id,

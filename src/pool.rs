@@ -13,7 +13,7 @@ pub struct Pool {
 }
 
 impl Pool {
-    pub fn init(config: Config) -> Pool {
+    pub fn init(config: Config) -> Self {
         let config = Arc::new(config);
         let mut workers = Vec::with_capacity(config.worker_number);
         let (tx, rx) = mpsc::channel();
@@ -24,7 +24,7 @@ impl Pool {
             workers.push(w);
         }
 
-        Pool { workers, rx }
+        Self { workers, rx }
     }
 
     pub fn handle(&self, stream: TcpStream) {

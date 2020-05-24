@@ -17,7 +17,7 @@ pub struct Worker {
 }
 
 impl Worker {
-    pub fn new(config: Arc<Config>, id: usize, ready_tx: &Sender<usize>) -> Worker {
+    pub fn new(config: Arc<Config>, id: usize, ready_tx: &Sender<usize>) -> Self {
         let ready_tx = ready_tx.clone();
         let (tx, rx) = mpsc::channel();
 
@@ -33,7 +33,7 @@ impl Worker {
             println!("worker {}: stop", id);
         }));
 
-        Worker { tx, thread }
+        Self { tx, thread }
     }
 
     pub fn handle(&self, s: TcpStream) {
